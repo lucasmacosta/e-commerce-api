@@ -76,11 +76,11 @@ export class LineItem extends Model<
   text!: string;
 
   @AllowNull(false)
-  @Column(DataType.DECIMAL)
+  @Column(DataType.DECIMAL(10, 2))
   unitPrice!: number;
 
   @AllowNull(false)
-  @Column(DataType.DECIMAL)
+  @Column(DataType.DECIMAL(10, 2))
   total!: number;
 
   @CreatedAt

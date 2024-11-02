@@ -19,7 +19,7 @@ export const getProductsSchema = searchParamsSchema.extend({
 export const createProductSchema = z.object({
   title: z.string().min(1).max(128),
   description: z.string().min(1).max(128).optional(),
-  price: z.number().min(0),
+  price: z.number().min(0).multipleOf(0.01),
 });
 
 export const updateProductSchema = createProductSchema.extend({

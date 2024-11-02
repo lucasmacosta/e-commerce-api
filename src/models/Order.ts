@@ -37,11 +37,11 @@ export class Order extends Model<OrderAttributes, OrderCreationAttributes> {
   lineItems!: LineItem[];
 
   @AllowNull(false)
-  @Column(DataType.DECIMAL)
+  @Column(DataType.DECIMAL(10, 2))
   total!: number;
 
   @AllowNull(false)
-  @Column(DataType.DECIMAL)
+  @Column(DataType.DECIMAL(10, 2))
   shippingFee!: number;
 
   @CreatedAt

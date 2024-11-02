@@ -52,7 +52,7 @@ export class Product extends Model<
 
   @Min(0)
   @AllowNull(false)
-  @Column(DataType.DECIMAL)
+  @Column(DataType.DECIMAL(10, 2))
   price!: number;
 
   @HasMany(() => LineItem)
