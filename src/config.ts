@@ -8,6 +8,7 @@ const config = {
   },
   logger: {
     level: process.env.LOGGER_LEVEL || "info",
+    silent: process.env.LOGGER_SILENT === "true",
   },
 };
 

@@ -14,6 +14,7 @@ const logger = winston.createLogger({
       ),
     }),
   ],
+  silent: config.logger.silent,
 });
 
 export const LOGGER = new Token<Logger>("LOGGER");

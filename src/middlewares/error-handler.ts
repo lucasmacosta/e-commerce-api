@@ -1,6 +1,10 @@
 import { ErrorRequestHandler } from "express";
+import Container from "typedi";
 
 import ApiError, { API_ERRORS } from "../lib/api-error";
+import { LOGGER } from "../lib/logger";
+
+const logger = Container.get(LOGGER);
 
 const errorHandler: ErrorRequestHandler = (error, _, res, __) => {
   if (error instanceof ApiError) {
@@ -11,7 +15,7 @@ const errorHandler: ErrorRequestHandler = (error, _, res, __) => {
     return;
   }
 
-  console.error(error);
+  logger.error(error);
 
   const serverError = API_ERRORS.internalServerError;
 

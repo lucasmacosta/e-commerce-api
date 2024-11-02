@@ -22,7 +22,7 @@ export class ProductService {
       perPage = PER_PAGE_DEFAULT,
       fields,
       orderBy = "title",
-      orderDir = "desc",
+      orderDir = "asc",
     } = query;
 
     return Product.findAll({
