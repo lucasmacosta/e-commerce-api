@@ -58,8 +58,8 @@ describe("Products E2E", () => {
         .post("/products")
         .send({ title: "title 1", description: "description", price: 123.45 });
 
-      expect(response.status).toBe(500);
-      expect(response.body).toMatchObject({ error: "Internal Server Error" });
+      expect(response.status).toBe(409);
+      expect(response.body).toMatchObject({ error: "Conflict" });
     });
   });
 
@@ -102,8 +102,8 @@ describe("Products E2E", () => {
         .put(`/products/${product1.id}`)
         .send({ title: "title 2" });
 
-      expect(response.status).toBe(500);
-      expect(response.body).toMatchObject({ error: "Internal Server Error" });
+      expect(response.status).toBe(409);
+      expect(response.body).toMatchObject({ error: "Conflict" });
     });
   });
 

@@ -17,6 +17,10 @@ export const API_ERRORS = {
     errorName: "Not Found",
     statusCode: 404,
   },
+  conflict: {
+    errorName: "Conflict",
+    statusCode: 409,
+  },
   internalServerError: {
     errorName: "Internal Server Error",
     statusCode: 500,
