@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "47b80489-e9b8-488d-a9ce-933fabb99d3d",
+		"name": "eCommerce API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26481665"
+	},
+	"item": [
+		{
+			"name": "Get products",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/products/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Product 1\",\n    \"description\": \"Desc 1\",\n    \"price\": 123.03\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/products",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Product 1 updated\",\n    \"description\": \"Desc 1 updated\",\n    \"price\": 321.56\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/products/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/products/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/orders?fields[]=id&fields[]=total&fields[]=shippingFee&fields[]=createdAt&lineItemFields[]=id&lineItemFields[]=quantity&lineItemFields[]=text&lineItemFields[]=unitPrice&lineItemFields[]=total&productFields[]=id&productFields[]=title&productFields[]=price&orderBy=updatedAt",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"orders"
+					],
+					"query": [
+						{
+							"key": "fields[]",
+							"value": "id"
+						},
+						{
+							"key": "fields[]",
+							"value": "total"
+						},
+						{
+							"key": "fields[]",
+							"value": "shippingFee"
+						},
+						{
+							"key": "fields[]",
+							"value": "createdAt"
+						},
+						{
+							"key": "lineItemFields[]",
+							"value": "id"
+						},
+						{
+							"key": "lineItemFields[]",
+							"value": "quantity"
+						},
+						{
+							"key": "lineItemFields[]",
+							"value": "text"
+						},
+						{
+							"key": "lineItemFields[]",
+							"value": "unitPrice"
+						},
+						{
+							"key": "lineItemFields[]",
+							"value": "total"
+						},
+						{
+							"key": "productFields[]",
+							"value": "id"
+						},
+						{
+							"key": "productFields[]",
+							"value": "title"
+						},
+						{
+							"key": "productFields[]",
+							"value": "price"
+						},
+						{
+							"key": "orderBy",
+							"value": "updatedAt"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lineItems\": [\n        {\n            \"productId\": 1,\n            \"quantity\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/orders",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
