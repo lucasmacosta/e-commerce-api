@@ -127,6 +127,23 @@ describe("Orders E2E", () => {
       });
     });
 
+    test("should not allow to delete products with existing orders", async () => {
+      const response = await request(app)
+        .post("/orders")
+        .send({
+          lineItems: [{ productId: product1.id, quantity: 2 }],
+        });
+
+      expect(response.status).toBe(201);
+
+      const deleteRes = await request(app)
+        .delete(`/products/${product1.id}`)
+        .send();
+
+      expect(deleteRes.status).toBe(409);
+      expect(deleteRes.body).toMatchObject({ error: "Conflict" });
+    });
+
     test("should fail if request is invalid", async () => {
       const response = await request(app)
         .post("/orders")
